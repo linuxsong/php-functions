@@ -98,4 +98,16 @@ class Str
         }
         return substr($str, -$n);   
     }
+    
+    /**
+     * Returns true if the string starts with $start; otherwise returns false.
+     * @param string $str
+     * @param string $start
+     * @return bool
+     */
+    public static function startsWith($str, $start, $caseSensitive = true)
+    {
+        $left = self::left($str, strlen($start));
+        return $caseSensitive ? strcmp($left, $start) : strcascmp($left, $start);
+    }
 }
